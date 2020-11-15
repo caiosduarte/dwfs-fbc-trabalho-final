@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1>Inventário Patrimonial</h1>
+
+    <div class="container text-justify">
+        <h2>Inventário de itens e Cálculo da depreciação anual</h2>
+
+        <p><strong>Depreciação anual = (Custo de aquisição – Valor residual) / Anos de vida útil.</strong></p>
+
+
+
+        <h3>O cálculo na prática</h3>
+
+        <p class="container">
+            <h4>Com valor residual:</h4>
+            <p>
+            Custo de aquisição: R$ 8 milhões
+
+            Valor residual: R$ 300 mil
+
+            Vida útil: 10 anos<br />
+
+            <strong>Depreciação anual = (8.000.000 – 300.000)/10 = R$ 770.000</strong><br />
+
+            Ou seja, a cada ano esse equipamento tem uma depreciação linear de R$ 770 mil nas despesas da empresa.
+            </p>
+
+        </p>
+
+        <p class="container">
+            <h4>Sem valor residual:</h4>
+            <p>
+            O processo é o mesmo, alterando apenas o valor inserido no campo Valor residual, de forma que:
+
+            Custo de aquisição: R$ 8 milhões
+
+            Valor residual: R$ 0
+
+            Vida útil: 10 anos<br />
+
+            <strong>Depreciação anual = (8.000.000 – 0)/10 = R$ 800.000</strong><br />
+
+            Nesse caso, a cada ano esse equipamento tem uma depreciação de R$ 800 mil nas despesas da empresa.
+            </p>
+        </p>
+
+
+
+    </div>
+
+</div>

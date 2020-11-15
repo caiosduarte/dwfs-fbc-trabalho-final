@@ -1,0 +1,104 @@
+﻿@model Inventario.ViewModel.ListaItemViewModel
+@{
+    ViewData["Title"] = "Lista de Itens do Patrimônio";
+}
+
+
+<h1>GetTodosItens</h1>
+
+<p>
+    <a asp-action="Create">Novo Item</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.CustoTotal)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.ValorResidualTotal)
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.Quantidade
+            </td>
+            <td>
+                @string.Format("{0:#.##0,00}", Model.CustoTotal)
+            </td>
+            <td>
+                @string.Format("{0:#.##0,00}", Model.ValorResidualTotal)
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Numero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Custo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ValorResidual)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Anos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depreciacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepreciacaoCalculada)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Itens)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                   
+                    @string.Format("{0:#.##0,00}", item.Custo)
+                </td>
+                <td>
+                    @string.Format("{0:#.##0,00}", item.ValorResidual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Anos)
+                </td>
+                <td>
+                    @string.Format("{0:#.##0,00}", item.Depreciacao)
+                </td>
+                <td>
+                    @string.Format("{0:#.##0,00}", item.CalculaDepreciacaoAnual())
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Remover</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
